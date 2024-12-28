@@ -1,0 +1,79 @@
+/* _reset.scss */
+
+/* Reseteo de márgenes y rellenos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Eliminación del estilo por defecto de listas */
+ul,
+ol {
+    list-style: none;
+}
+
+/* Normalización de enlaces */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Eliminación de bordes y sombras en botones */
+button,
+input,
+select,
+textarea {
+    background: none;
+    border: none;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+/* Reseteo de la apariencia de las tablas */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Reseteo de la apariencia de los formularios */
+input,
+textarea,
+select,
+button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+}
+
+/* Normalización de imágenes */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Normalización de las cajas de texto y formularios */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    outline: none;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/* Reseteo de la apariencia de las listas dentro de elementos no ordenados y ordenados */
+ul,
+ol {
+    list-style: none;
+    padding-left: 0;
+}

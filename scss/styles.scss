@@ -1,0 +1,187 @@
+// 1. Importaciones
+@use "sass:color"; // Módulo para manipular colores
+@use './variables'; // Variables globales (colores, fuentes, etc.)
+@use './mixins' as *; // Mixins personalizados
+@use './reset'; // Reset de estilos globales
+@use './products'; // Estilos específicos de productos
+@use './about'; // Estilos específicos de la sección "About"
+@use './contact'; // Estilos específicos de la sección de contacto
+@use './pay'; // Estilos específicos de la sección de pagos
+
+// 2. Estilos Generales
+body {
+    font-family: variables.$font-family;
+    line-height: variables.$line-height;
+    background-image: variables.$background-image;
+    background-size: variables.$background-size;
+    background-position: variables.$background-position;
+    background-attachment: variables.$background-attachment;
+    color: variables.$color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+// Estilos para los encabezados principales
+h1,
+h3 {
+    color: variables.$color;
+    text-align: center;
+}
+
+// 3. Navbar (Barra de navegación)
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: variables.$primary-color;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    a {
+        color: variables.$white;
+        text-decoration: none;
+        padding: 10px 15px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        margin: 0 10px;
+
+        &:hover {
+            background-color: variables.$hover-color;
+            border-radius: 4px;
+        }
+    }
+
+    // Estilos para pantallas pequeñas
+    @include responsive(768px) {
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            margin: 5px 0;
+        }
+    }
+}
+
+// 4. Contenido Principal
+.content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+// 5. Sección de Newsletter
+.newsletter {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: variables.$white;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    border-radius: 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 3;
+
+    // Estilos para pantallas pequeñas
+    @include responsive(768px) {
+        width: 80%;
+
+        input[type="email"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    }
+}
+
+// 6. Pie de página (Footer)
+.footer {
+    background-color: variables.$primary-color;
+    color: variables.$white;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-links {
+        display: flex;
+        gap: 25px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer-social {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+
+        .social-icon {
+            background-color: variables.$dark-gray;
+            padding: 15px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            font-size: 24px;
+
+            &:hover {
+                background-color: color.scale(variables.$dark-gray, $lightness: 10%);
+            }
+        }
+    }
+
+    .footer-bottom {
+        margin-bottom: 20px;
+        margin-top: 30px;
+        font-size: 16px;
+        color: color.scale(variables.$color, $lightness: 30%);
+    }
+
+    // Estilos para pantallas pequeñas
+    @include responsive(768px) {
+        .footer-container {
+            flex-direction: column;
+        }
+
+        .footer-links {
+            justify-content: center;
+        }
+
+        .footer-social {
+            justify-content: center;
+        }
+    }
+}
+
+// 7. Clases Globales para Reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+// Estilo global para body
+body {
+    font-family: variables.$font-family;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
