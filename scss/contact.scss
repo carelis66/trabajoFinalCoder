@@ -1,0 +1,119 @@
+@use 'variables';
+@use "sass:color";
+@use './mixins' as *; // Asegúrate de que esta ruta sea correcta
+
+.contact-form {
+    width: 60%;
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: variables.$black;
+    color: variables.$white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 1rem;
+        color: color.adjust(variables.$white, $lightness: 10%);
+    }
+
+    label {
+        font-size: 16px;
+        display: block;
+        margin-bottom: 5px;
+        text-align: left;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        background-color: variables.$light-gray;
+        color: variables.$black;
+
+        &:focus {
+            border-color: variables.$gold;
+            outline: none;
+            box-shadow: 0 0 5px variables.$gold;
+        }
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        font-size: 16px;
+        background-color: variables.$dark-gray;
+        color: variables.$light-gray;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: color.adjust(variables.$dark-gray, $lightness: -10%);
+        }
+    }
+
+    @include responsive(768px) {
+        width: 80%;
+        padding: 1.5rem;
+
+        h2 {
+            font-size: 20px;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+
+    @include responsive(480px) {
+        width: 95%;
+        padding: 1rem;
+
+        h2 {
+            font-size: 18px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input,
+        textarea {
+            font-size: 13px;
+        }
+
+        button {
+            font-size: 14px;
+        }
+    }
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+
+    img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    @include responsive(768px) {
+        grid-template-columns: 1fr;
+    }
+}

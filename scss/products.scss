@@ -1,0 +1,61 @@
+// scss/products.scss
+@use "sass:color";
+@use 'variables';
+
+
+// Resto del contenido de products.scss
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    background-color: color.scale(variables.$black, $lightness: -10%);
+    color: variables.$white;
+}
+
+.product-item {
+    text-align: center;
+    background-color: color.scale(variables.$black, $lightness: -10%);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    h3 {
+        margin: 1rem 0 0.5rem;
+        font-size: 1.2rem;
+        background-color: color.scale(variables.$black, $lightness: -10%);
+    }
+
+    p {
+        margin: 0.5rem 0 1rem;
+        font-size: 1rem;
+    }
+
+    .buy-btn {
+        padding: 0.5rem 1rem;
+        background-color: variables.$dark-gray;
+        color: variables.$light-gray;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: variables.$button-hover;
+        }
+    }
+}
